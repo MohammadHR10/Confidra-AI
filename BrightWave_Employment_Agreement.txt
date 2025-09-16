@@ -1,0 +1,53 @@
+Employment Agreement
+
+This Employment Agreement (the "Agreement") is made and entered into on September 16, 2025 between BrightWave Solutions, Inc., a Texas corporation with its principal place of business at 4102 Barton Springs Rd, Austin, TX 78704 (the "Employer"), and Alexandra Rivera, residing at 223 Maple Avenue, Austin, TX 78701 (the "Employee").
+
+1. Position and Duties
+Employer hereby employs Employee as Senior Software Engineer. Employee will report to Sarah Lee, Director of Engineering, and will perform duties including designing, implementing, and maintaining backend services, participating in architecture reviews, mentoring junior engineers, and other duties reasonably assigned by Employer.
+
+2. Start Date and Term
+Employee's employment will commence on October 1, 2025. Employment is at-will and may be terminated by either party at any time, with or without Cause, subject to the notice provisions in Section 7.
+
+3. Compensation
+Base Salary: $120,000 per year, paid on a bi-weekly basis and subject to applicable taxes and withholdings.
+
+Signing Bonus: $10,000 (paid within first 30 days of employment, subject to standard deductions).
+
+Equity: Employee will be granted 500 restricted stock units (RSUs) under the Company's 2024 Equity Incentive Plan, subject to the terms of the applicable award agreement. RSUs vest 25% after 12 months and then monthly over the next 36 months (4-year vesting schedule).
+
+Bonus: Employee will be eligible for an annual performance bonus target of 15% of base salary, discretionary and based on company and individual performance.
+
+4. Benefits
+Employee will be eligible to participate in Employer's benefit plans, including medical, dental, and vision insurance (subject to plan terms and waiting periods), 401(k) with employer matching up to 4% of salary, and standard employee assistance programs. Employer provides up to 15 days of paid vacation (PTO) per year, 8 paid sick days, and 10 paid company holidays per calendar year.
+
+5. Confidentiality and Inventions
+Employee shall sign and comply with the Company's Confidentiality and Invention Assignment Agreement. Employee agrees to hold in confidence all proprietary information and trade secrets of the Company and to assign to the Company all right, title, and interest in any inventions, discoveries, or works of authorship conceived or developed by Employee during the term of employment that relate to the Company's business.
+
+6. Work Location and Hours
+Primary work location is Employer's office at 4102 Barton Springs Rd, Austin, TX. Employee is expected to work approximately 40 hours per week. Remote or hybrid arrangements may be available per Employer's remote-work policy and must be approved by Employee's manager.
+
+7. Termination and Notice
+Either party may terminate employment at any time. If Employer terminates without Cause, Employer will provide two (2) weeks' severance pay in lieu of notice. If Employee voluntarily resigns, Employee agrees to provide thirty (30) days' written notice. Employer may terminate for Cause immediately; "Cause" includes gross misconduct, material breach of this Agreement, negligence, or willful violation of Company policy.
+
+8. Paid Time Off and Leave
+Vacation (PTO) accrues on a pro rata basis. Employee is entitled to up to 12 weeks of unpaid leave in accordance with federal and state law where applicable (e.g., FMLA) and any paid parental leave policy in effect.
+
+9. Expense Reimbursement
+Employer will reimburse reasonable business expenses incurred by Employee in the performance of duties, subject to submission of expense reports and supporting receipts per Company policy.
+
+10. Dispute Resolution and Governing Law
+Any dispute arising from this Agreement will be resolved through binding arbitration in Travis County, Texas under the rules of the American Arbitration Association. This Agreement will be governed by and construed in accordance with the laws of the State of Texas.
+
+11. Non-Solicitation
+During employment and for a period of twelve (12) months following termination, Employee will not, directly or indirectly, solicit Company employees or independent contractors for the purpose of hiring them away from the Company.
+
+12. Entire Agreement
+This Agreement, together with any Confidentiality and Invention Assignment Agreement and equity award agreements, constitutes the entire agreement between the parties and supersedes all prior agreements or understandings, written or oral.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+
+BRIGHTWAVE SOLUTIONS, INC.
+By: Mark Caldwell, Chief Executive Officer
+
+EMPLOYEE:
+Alexandra Rivera

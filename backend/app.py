@@ -1,5 +1,6 @@
 # app.py
 from fastapi import FastAPI, HTTPException, Form
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -7,6 +8,7 @@ from models import AskRequest, AskResponse
 from friendli_client import classify_query, generate_from_context, polite_block
 from guards import scan_text, public_context
 from store import log_event
+from document_processor import doc_processor
 
 load_dotenv()
 
@@ -14,6 +16,15 @@ app = FastAPI(
     title="Contract Compliance Sentinel",
     version="0.1.0",
     description="Pre- and post-guard rails to prevent NDA/regulated clause leakage.",
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace with specific domains
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/health")
@@ -115,30 +126,26 @@ async def upload_document(
     Upload and process a document for contract compliance
     """
     try:
-        # Here you would typically:
-        # 1. Parse the document content into clauses
-        # 2. Classify each clause by sensitivity
-        # 3. Store in the database/file system
+        # Process the document using the document processor
+        result = doc_processor.process_document(content, filename, sensitivity)
         
-        # For now, we'll just log the upload
-        log_event("document_upload", {
-            "filename": filename,
-            "sensitivity": sensitivity,
-            "content_length": len(content),
-            "timestamp": timestamp
-        })
-        
-        # TODO: Implement actual document processing
-        # - Extract clauses from content
-        # - Classify sensitivity of each clause
-        # - Update the contract.json file
-        
-        return {
-            "success": True,
-            "message": f"Document '{filename}' uploaded successfully",
-            "clauses_extracted": 0,  # Placeholder
-            "sensitivity": sensitivity
-        }
+        if result["success"]:
+            log_event("document_upload", {
+                "filename": filename,
+                "sensitivity": sensitivity,
+                "content_length": len(content),
+                "clauses_added": result["clauses_added"],
+                "timestamp": timestamp
+            })
+            
+            return {
+                "success": True,
+                "message": result["message"],
+                "clauses_extracted": result["clauses_added"],
+                "sensitivity": sensitivity
+            }
+        else:
+            raise Exception(result["error"])
         
     except Exception as e:
         log_event("error", {
@@ -146,7 +153,7 @@ async def upload_document(
             "filename": filename,
             "error": repr(e)
         })
-        raise HTTPException(status_code=500, detail="Document upload failed")
+        raise HTTPException(status_code=500, detail=f"Document upload failed: {str(e)}")
 
 @app.get("/documents")
 async def list_documents():
