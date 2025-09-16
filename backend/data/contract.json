@@ -1,0 +1,7 @@
+[
+  {"vendor":"AcmeCo","doc_id":"acme-msa","clause":"Payment terms are Net 30.","sensitivity":"public"},
+  {"vendor":"AcmeCo","doc_id":"acme-msa","clause":"Either party may terminate with 60 days notice.","sensitivity":"public"},
+  {"vendor":"AcmeCo","doc_id":"acme-master","clause":"Termination penalty is $1,000,000 if breached within 12 months.","sensitivity":"protected"},
+  {"vendor":"AcmeCo","doc_id":"acme-master","clause":"Discount schedule for strategic customers (Appendix B).","sensitivity":"protected"},
+  {"vendor":"BetaCorp","doc_id":"beta-supply","clause":"Confidential rebate tiers in Annex C.","sensitivity":"protected"}
+]

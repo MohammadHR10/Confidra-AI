@@ -1,0 +1,18 @@
+redactions:
+  - name: termination_penalty
+    match:
+      ["termination penalty", "liquidated damages", "early termination fee"]
+    action: block
+  - name: pricing_discounts
+    match: ["discount schedule", "rebate tiers", "preferred pricing"]
+    action: redact
+
+policies:
+  - id: NDA-001
+    description: "Do not disclose NDA-protected penalty or pricing details."
+    applies_to: ["protected"]
+    on_violation: "block"
+  - id: NDA-LOG
+    description: "Log all attempts to access protected content."
+    applies_to: ["protected"]
+    on_violation: "log"
