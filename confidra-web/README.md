@@ -3,11 +3,13 @@
 ## Setup
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -19,11 +21,13 @@ npm run dev
 ### Option 1: Vercel CLI (Recommended)
 
 1. Install Vercel CLI:
+
 ```bash
 npm i -g vercel
 ```
 
 2. Deploy:
+
 ```bash
 vercel
 ```

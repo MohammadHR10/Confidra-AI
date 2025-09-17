@@ -5,6 +5,7 @@
 I've built a complete **Next.js version** of your Confidra AI dashboard that's ready for Vercel deployment!
 
 ### 📁 Project Structure:
+
 ```
 confidra-web/
 ├── app/
@@ -31,19 +32,41 @@ confidra-web/
 ✅ **Interactive Q&A**: Ask questions about contracts  
 ✅ **Modern Animations**: Framer Motion effects  
 ✅ **Responsive Design**: Works on all devices  
-✅ **TypeScript**: Type-safe code  
+✅ **TypeScript**: Type-safe code
 
 ## 🚀 Deploy to Vercel (3 Steps):
 
-### Step 1: Prepare Your Backend
-First, you need to deploy your FastAPI backend. Options:
-- **Railway** (Recommended): `railway.app`
-- **Heroku**: `heroku.com`
-- **DigitalOcean**: `digitalocean.com`
+### Step 1: Deploy Your Backend to Vercel
+
+Your FastAPI backend can now be deployed to Vercel too!
+
+1. **Navigate to backend directory**:
+
+   ```bash
+   cd ../backend
+   vercel login
+   vercel
+   ```
+
+2. **Set environment variables**:
+
+   ```bash
+   vercel env add OPENAI_API_KEY
+   vercel env add FRIENDLI_TOKEN
+   ```
+
+3. **Deploy to production**:
+
+   ```bash
+   vercel --prod
+   ```
+
+4. **Get your backend URL** (e.g., `https://your-backend-abc123.vercel.app`)
 
 ### Step 2: Deploy Frontend to Vercel
 
 1. **Push to GitHub**:
+
    ```bash
    cd confidra-web
    git init
@@ -63,8 +86,11 @@ First, you need to deploy your FastAPI backend. Options:
 
 ### Step 3: Configure Environment Variables
 
-In Vercel project settings, add:
-- `BACKEND_URL`: Your deployed FastAPI backend URL
+In Vercel project settings (Settings → Environment Variables), add:
+
+- `NEXT_PUBLIC_BACKEND_URL`: Your deployed FastAPI backend URL (e.g., `https://your-backend-abc123.vercel.app`)
+
+**Important**: Use the exact backend URL from Step 1 without trailing slash.
 
 ## 🔧 Local Development:
 
@@ -86,6 +112,7 @@ Visit: `http://localhost:3000`
 ## 🔄 Backend Integration:
 
 The frontend will make API calls to your backend:
+
 - `POST /upload-document` - Process uploaded files
 - `POST /ask` - Handle Q&A queries
 

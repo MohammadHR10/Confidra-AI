@@ -28,7 +28,7 @@ export default function TextInput({
       formData.append('sensitivity', 'protected')
       formData.append('timestamp', new Date().toISOString())
 
-      const response = await fetch('/api/upload-document', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/upload-document`, {
         method: 'POST',
         body: formData,
       })

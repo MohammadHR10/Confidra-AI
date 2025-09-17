@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
+import { uploadDocument } from '../lib/api'
 
 interface DocumentUploadProps {
   onDocumentProcessed: (filename: string, success: boolean) => void
@@ -57,36 +58,17 @@ export default function DocumentUpload({
     setProcessingStatus('processing')
 
     try {
-      const formData = new FormData()
-      formData.append('filename', selectedFile.name)
-      formData.append('sensitivity', 'protected')
-      formData.append('timestamp', new Date().toISOString())
-
-      // Read file content based on type
-      let content = ''
-      if (selectedFile.type === 'text/plain') {
-        content = await selectedFile.text()
-      } else {
-        // For PDF/DOCX, we'd need additional processing
-        // For now, just use filename as placeholder
-        content = `Document uploaded: ${selectedFile.name}`
-      }
-
-      formData.append('content', content)
-
-      const response = await fetch('/api/upload-document', {
-        method: 'POST',
-        body: formData,
-      })
-
-      if (response.ok) {
-        onDocumentProcessed(selectedFile.name, true)
-      } else {
-        onDocumentProcessed(selectedFile.name, false)
-      }
-    } catch (error) {
+      await uploadDocument(selectedFile)
+      
+      setProcessingStatus('success')
+      onDocumentProcessed(selectedFile.name, true)
+    } catch (error: any) {
       console.error('Error processing document:', error)
+      setProcessingStatus('error')
       onDocumentProcessed(selectedFile.name, false)
+      
+      // Show user-friendly error message
+      alert(error.message || 'Failed to upload document. Please check if the backend is running.')
     }
   }
 

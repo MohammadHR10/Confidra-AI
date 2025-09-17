@@ -3,9 +3,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheckIcon, DocumentArrowUpIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
-import DocumentUpload from '../components/DocumentUpload'
-import TextInput from '../components/TextInput'
-import QuerySection from '../components/QuerySection'
 
 export default function Home() {
   const [documentProcessed, setDocumentProcessed] = useState(false)
@@ -68,11 +65,15 @@ export default function Home() {
               <DocumentArrowUpIcon className="w-6 h-6 text-white" />
               <h3 className="text-xl font-poppins font-medium">Upload Document</h3>
             </div>
-            <DocumentUpload 
-              onDocumentProcessed={handleDocumentProcessed}
-              processingStatus={processingStatus}
-              setProcessingStatus={setProcessingStatus}
-            />
+            <div className="bg-card p-6 rounded-lg">
+              <p className="text-gray-300">Document upload component will go here</p>
+              <button 
+                onClick={() => handleDocumentProcessed('test-doc.pdf', true)}
+                className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+              >
+                Test Upload
+              </button>
+            </div>
           </motion.div>
 
           {/* Text Input Placeholder */}
@@ -85,11 +86,15 @@ export default function Home() {
               <ClipboardDocumentIcon className="w-6 h-6 text-white" />
               <h3 className="text-xl font-poppins font-medium">Paste Text</h3>
             </div>
-            <TextInput 
-              onTextProcessed={handleDocumentProcessed}
-              processingStatus={processingStatus}
-              setProcessingStatus={setProcessingStatus}
-            />
+            <div className="bg-card p-6 rounded-lg">
+              <p className="text-gray-300">Text input component will go here</p>
+              <button 
+                onClick={() => handleDocumentProcessed('pasted-text.txt', true)}
+                className="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded"
+              >
+                Test Text Input
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -102,7 +107,24 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="border-t border-gray-600 pt-16"
         >
-          <QuerySection documentName={documentName} />
+          <div className="max-w-4xl mx-auto px-8">
+            <h2 className="text-2xl font-poppins font-medium text-white mb-6 text-center">
+              Ask questions about: {documentName}
+            </h2>
+            <div className="bg-card p-6 rounded-lg">
+              <p className="text-gray-300 mb-4">Query section will go here</p>
+              <div className="flex space-x-4">
+                <input 
+                  type="text" 
+                  placeholder="Ask a question about your contract..."
+                  className="flex-1 bg-primary border border-gray-600 rounded-lg px-4 py-2 text-white"
+                />
+                <button className="bg-accent hover:bg-purple-700 px-6 py-2 rounded-lg">
+                  Ask
+                </button>
+              </div>
+            </div>
+          </div>
         </motion.div>
       )}
     </div>

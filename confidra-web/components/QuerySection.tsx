@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { askQuestion as apiAskQuestion } from '../lib/api'
 
 interface QuerySectionProps {
   documentName: string
@@ -19,27 +20,8 @@ export default function QuerySection({ documentName }: QuerySectionProps) {
     setResult(null)
 
     try {
-      const response = await fetch('/api/ask', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: query.trim(),
-          user_id: 'web_user'
-        }),
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-        setResult(data)
-      } else {
-        setResult({
-          action: 'error',
-          reason: `API Error: ${response.status}`,
-          safe_output: 'Failed to process your question.'
-        })
-      }
+      const data = await apiAskQuestion(query.trim())
+      setResult(data)
     } catch (error) {
       console.error('Error asking question:', error)
       setResult({
